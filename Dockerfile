@@ -1,22 +1,18 @@
-FROM node:20
+# Use official Node.js runtime as the base image
+FROM node:18-alpine
 
-# Install Python3, GCC (C), and OpenJDK (Java)
-RUN apt-get update && \
-    apt-get install -y python3 gcc openjdk-17-jdk && \
-    rm -rf /var/lib/apt/lists/*
+# Set the working directory
+WORKDIR /usr/src/app
 
-# Set working directory
-WORKDIR /app
-
-# Copy and install Node.js dependencies
+# Copy package.json and install dependencies
 COPY package.json ./
 RUN npm install
 
-# Copy application code
-COPY app ./app
+# Copy the app source code
+COPY ./app ./app
 
-# Expose port (you are using 3000 in server.js)
-EXPOSE 3000
+# Expose port 80 for Azure compatibility
+EXPOSE 80
 
-# Start the Node.js server
-CMD ["npm", "start"]
+# Start the app with port set to 80
+CMD ["sh", "-c", "PORT=80 node app/server.js"]
