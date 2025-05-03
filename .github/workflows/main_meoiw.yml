@@ -30,7 +30,7 @@ jobs:
       uses: docker/build-push-action@v3
       with:
         push: true
-        tags: ${{secrets.DOCKER_HUB_USERNAME }}/algocore:${{ github.sha }}
+        tags: ${{ secrets.DOCKER_HUB_USERNAME }}/algocore:${{ github.sha }}
         file: ./Dockerfile
 
   deploy:
