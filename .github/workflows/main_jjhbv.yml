@@ -48,4 +48,4 @@ jobs:
         app-name: 'jjhbv'
         slot-name: 'production'
         publish-profile: ${{ secrets.AzureAppService_PublishProfile_1e428bd5d52742c7b60d206b28a9415c }}
-        images: 'index.docker.io/${{ secrets.AzureAppService_ContainerUsername_9d92cc6e583242fca53384aa0d39246b }}/hemanthkumar31/algocore:${{ github.sha }}'
+        images: 'hemanthkumar31/algocore:${{ github.sha }}'
