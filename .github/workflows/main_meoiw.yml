@@ -30,7 +30,7 @@ jobs:
       uses: docker/build-push-action@v3
       with:
         push: true
-        tags: index.docker.io/${{ secrets.AzureAppService_ContainerUsername_47d028afdc5c49d2bb12054931f55bc2 }}/hemanthkumar31/algocore:${{ github.sha }}
+        tags: ${{ secrets.DOCKER_HUB_USERNAME }}/algocore:${{ github.sha }}
         file: ./Dockerfile
 
   deploy:
