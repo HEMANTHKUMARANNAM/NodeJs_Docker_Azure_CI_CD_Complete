@@ -1,6 +1,6 @@
 FROM node:20
 
-# Install Python3, GCC (for C), and OpenJDK (Java)
+# Install Python3, GCC (C), and OpenJDK (Java)
 RUN apt-get update && \
     apt-get install -y python3 gcc openjdk-17-jdk && \
     rm -rf /var/lib/apt/lists/*
@@ -15,8 +15,8 @@ RUN npm install
 # Copy application code
 COPY app ./app
 
-# Expose port for the API
-EXPOSE 5000
+# Expose port (you are using 3000 in server.js)
+EXPOSE 3000
 
 # Start the Node.js server
 CMD ["npm", "start"]
