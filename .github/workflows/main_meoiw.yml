@@ -23,8 +23,8 @@ jobs:
       uses: docker/login-action@v2
       with:
         registry: https://index.docker.io/v1/
-        username: ${{ secrets.AzureAppService_ContainerUsername_47d028afdc5c49d2bb12054931f55bc2 }}
-        password: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}  # Docker Hub Access Token
+        username: ${{ secrets.AzureAppService_ContainerUsername_523d0320bb6446a4931538aaa7509d4c }}
+        password: ${{ secrets.AzureAppService_ContainerPassword_745bb4cfbf524c13837a99b60eec634a }}
 
     - name: Build and push container image to registry
       uses: docker/build-push-action@v3
@@ -47,5 +47,5 @@ jobs:
       with:
         app-name: 'meoiw'
         slot-name: 'production'
-        publish-profile: ${{ secrets.AzureAppService_PublishProfile_a72c10514eeb47f4a02b2f93465f5b2c }}
-        images: 'index.docker.io/${{ secrets.AzureAppService_ContainerUsername_47d028afdc5c49d2bb12054931f55bc2 }}/hemanthkumar31/algocore:${{ github.sha }}'
+        publish-profile: ${{ secrets.AzureAppService_PublishProfile_d4dfa9d1fb4941399217a5a4ff756f11 }}
+        images: 'index.docker.io/${{ secrets.AzureAppService_ContainerUsername_523d0320bb6446a4931538aaa7509d4c }}/hemanthkumar31/algocore:${{ github.sha }}'
